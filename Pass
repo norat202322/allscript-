@@ -1,6 +1,5 @@
 local gui = Instance.new("ScreenGui")
 gui.Name = "KeySystemNorat"
-syn.protect_gui(gui)
 gui.Parent = game:GetService("CoreGui")
 
 local frame = Instance.new("Frame")
