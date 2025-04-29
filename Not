@@ -1,22 +1,3 @@
-local keys = {
-    "hoangsatruongsalacuavn",
-    "norat"
-}
-
-local function isValidKey(inputKey)
-    for _, key in ipairs(keys) do
-        if inputKey == key then
-            return true
-        end
-    end
-    return false
-end
-
-if isfile("norat_key.txt") and isValidKey(readfile("norat_key.txt")) then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/norat202322/Allscript/refs/heads/main/Tonghop"))()
-    return
-end
-
 local gui = Instance.new("ScreenGui", game.CoreGui)
 local frame = Instance.new("Frame", gui)
 frame.Size = UDim2.new(0, 300, 0, 150)
@@ -24,7 +5,7 @@ frame.Position = UDim2.new(0.5, -150, 0.5, -75)
 frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 
 local box = Instance.new("TextBox", frame)
-box.PlaceholderText = "nhập key"
+box.PlaceholderText = "Nhập Key..."
 box.Size = UDim2.new(0, 280, 0, 50)
 box.Position = UDim2.new(0, 10, 0, 10)
 box.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
@@ -45,9 +26,11 @@ getKeyBtn.Position = UDim2.new(0, 10, 0, 115)
 getKeyBtn.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
 getKeyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
 
+local correctKey1 = "norat"
+local correctKey2 = "hoangsatruongsalacuavn"
+
 btn.MouseButton1Click:Connect(function()
-    if isValidKey(box.Text) then
-        writefile("norat_key.txt", box.Text)
+    if box.Text == correctKey1 or box.Text == correctKey2 then
         gui:Destroy()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/norat202322/Allscript/refs/heads/main/Tonghop"))()
     else
@@ -58,7 +41,7 @@ btn.MouseButton1Click:Connect(function()
 end)
 
 getKeyBtn.MouseButton1Click:Connect(function()
-    setclipboard("https://yeumoney.com/HuzQy3U")
+    setclipboard("https://yeumoney.com/HuzQy3U") -- Link lấy key
     getKeyBtn.Text = "Đã sao chép liên kết"
     wait(1.5)
     getKeyBtn.Text = "Lấy Key"
