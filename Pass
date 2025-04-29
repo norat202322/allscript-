@@ -1,55 +1,43 @@
-local gui = Instance.new("ScreenGui")
-gui.Name = "KeySystemNorat"
-gui.Parent = game:GetService("CoreGui")
+local gui = Instance.new("ScreenGui", game.CoreGui)
+gui.Name = "KeyInputGui"
 
-local frame = Instance.new("Frame")
-frame.Parent = gui
-frame.Size = UDim2.new(0, 320, 0, 180)
-frame.Position = UDim2.new(0.5, -160, 0.5, -90)
-frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-frame.BorderSizePixel = 0
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 300, 0, 150)
+frame.Position = UDim2.new(0.5, -150, 0.5, -75)
+frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 
-local box = Instance.new("TextBox")
-box.Parent = frame
-box.Size = UDim2.new(0, 290, 0, 50)
-box.Position = UDim2.new(0, 15, 0, 15)
-box.PlaceholderText = "Nhập Key vào đây..."
-box.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
+local box = Instance.new("TextBox", frame)
+box.PlaceholderText = "Nhập Key..."
+box.Size = UDim2.new(0, 280, 0, 50)
+box.Position = UDim2.new(0, 10, 0, 10)
+box.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 box.TextColor3 = Color3.fromRGB(255, 255, 255)
-box.TextScaled = true
 box.ClearTextOnFocus = false
-box.BorderSizePixel = 0
 
-local confirmBtn = Instance.new("TextButton")
-confirmBtn.Parent = frame
-confirmBtn.Size = UDim2.new(0, 290, 0, 40)
-confirmBtn.Position = UDim2.new(0, 15, 0, 75)
-confirmBtn.Text = "XÁC NHẬN KEY"
-confirmBtn.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-confirmBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-confirmBtn.TextScaled = true
-confirmBtn.BorderSizePixel = 0
+local btn = Instance.new("TextButton", frame)
+btn.Text = "Xác Nhận"
+btn.Size = UDim2.new(0, 280, 0, 40)
+btn.Position = UDim2.new(0, 10, 0, 70)
+btn.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+btn.TextColor3 = Color3.fromRGB(255, 255, 255)
 
-local getKeyBtn = Instance.new("TextButton")
-getKeyBtn.Parent = frame
-getKeyBtn.Size = UDim2.new(0, 290, 0, 30)
-getKeyBtn.Position = UDim2.new(0, 15, 0, 125)
-getKeyBtn.Text = "Lấy Key Miễn Phí"
+local getKeyBtn = Instance.new("TextButton", frame)
+getKeyBtn.Text = "Lấy Key"
+getKeyBtn.Size = UDim2.new(0, 280, 0, 30)
+getKeyBtn.Position = UDim2.new(0, 10, 0, 115)
 getKeyBtn.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
 getKeyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-getKeyBtn.TextScaled = true
-getKeyBtn.BorderSizePixel = 0
 
-local correctKey = "2012-02-2012"
+local correctKey = "norat"
 
-confirmBtn.MouseButton1Click:Connect(function()
+btn.MouseButton1Click:Connect(function()
     if box.Text == correctKey then
         gui:Destroy()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/norat202322/Allscript/refs/heads/main/Tonghop"))()
     else
         frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
         wait(1)
-        frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+        frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     end
 end)
 
@@ -57,5 +45,5 @@ getKeyBtn.MouseButton1Click:Connect(function()
     setclipboard("https://yeumoney.com/HuzQy3U")
     getKeyBtn.Text = "Đã sao chép liên kết"
     wait(1.5)
-    getKeyBtn.Text = "Lấy Key Miễn Phí"
+    getKeyBtn.Text = "Lấy Key"
 end)
