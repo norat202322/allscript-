@@ -3,7 +3,6 @@ if game.Players.LocalPlayer.PlayerGui:FindFirstChild("NoratKeyGui") then return 
 local gui = Instance.new("ScreenGui")
 gui.Name = "NoratKeyGui"
 gui.Parent = game.Players.LocalPlayer.PlayerGui
-gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 local blur = Instance.new("BlurEffect", game:GetService("Lighting"))
 blur.Size = 10
